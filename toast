@@ -1,0 +1,28 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:id="@+id/toast_layout_root">
+    <ImageView android:src="@drawable/droid"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginRight="8dp"
+               />
+    <TextView android:id="@+id/text"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:textColor="#FFF"
+              />
+</LinearLayout>
+
+*/displaying toast message/*
+
+private void displayToast(String message) {
+  // Inflate toast XML layout
+  View layout = getLayoutInflater().inflate(R.layout.toast_layout,
+                               (ViewGroup) findViewById(R.id.toast_layout_root));
+  // Fill in the message into the textview
+  TextView text = (TextView) layout.findViewById(R.id.text);
+  text.setText(message); 
+  // Construct the toast, set the view and display
+  Toast toast = new Toast(getApplicationContext());
+  toast.setView(layout);
+  toast.show();
+}
